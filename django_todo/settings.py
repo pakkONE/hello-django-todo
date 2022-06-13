@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-if os.path.isfile('env.py'):
-    import env
 import dj_database_url
 
 development = os.environ.get('DEVELOPMENT', False)
@@ -27,6 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'jJKIf_8NfK9_mvI-vJIdnVk98E')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
+
 
 if development:
     ALLOWED_HOSTS = [os.environ.get('localhost')]
