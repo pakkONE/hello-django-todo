@@ -20,13 +20,13 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'jJKIf_8NfK9_mvI-vJIdnVk98E')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-todo-jpak.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://pfzcsunaijavcw:32dda05287d0a70a4cd3eeeae435502d3582c737d4621078d8389b15e2bb8a9c@ec2-54-170-90-26.eu-west-1.compute.amazonaws.com:5432/d345sk0seq0efi')
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
